@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELORA | Online Exam System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">V</div>
+
+                <div>
+                    <h2>VELORA</h2>
+                    <span>ONLINE EXAM</span>
+                </div>
+            </div>
+
+            <div class="menu-title">
+                MENU
+            </div>
+
+            <nav>
+
+                <button class="nav-item active">
+                    <span>📝</span>
+                    Imtihon
+                </button>
+
+                <button class="nav-item">
+                    <span>📊</span>
+                    Natijalar
+                </button>
+
+                <button class="nav-item">
+                    <span>👨‍🎓</span>
+                    O‘quvchilar
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="online">
+                    <span></span>
+                    Tizim online
+                </div>
+
+                <p>© 2026 Velora</p>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- START SCREEN -->
+            <section id="startScreen" class="screen">
+
+                <div class="welcome-card">
+
+                    <div class="exam-icon">
+                        🎓
+                    </div>
+
+                    <div class="badge">
+                        VELORA EDUCATION
+                    </div>
+
+                    <h1>
+                        Online Exam
+                        <span>System</span>
+                    </h1>
+
+                    <p class="description">
+                        Bilimingizni sinab ko‘ring va natijangizni
+                        bir necha daqiqada bilib oling.
+                    </p>
+
+
+                    <div class="form-box">
+
+                        <label>
+                            O‘quvchi ismi
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Ism va familiyangizni kiriting"
+                        >
+
+
+                        <label>
+                            Imtihon fani
+                        </label>
+
+                        <select id="subject">
+
+                            <option value="web">
+                                🌐 Veb dizayn va UI/UX
+                            </option>
+
+                            <option value="programming">
+                                💻 Dasturlash asoslari
+                            </option>
+
+                            <option value="computer">
+                                🖥 Kompyuter qurilmalari
+                            </option>
+
+                            <option value="word">
+                                📄 Microsoft Word
+                            </option>
+
+                            <option value="excel">
+                                📊 Microsoft Excel
+                            </option>
+
+                        </select>
+
+
+                        <button
+                            id="startBtn"
+                            class="start-btn"
+                        >
+                            Imtihonni boshlash
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="exam-info">
+
+                        <div>
+                            <strong>20</strong>
+                            <small>Savol</small>
+                        </div>
+
+                        <div>
+                            <strong>20</strong>
+                            <small>Daqiqa</small>
+                        </div>
+
+                        <div>
+                            <strong>100</strong>
+                            <small>Maks. ball</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EXAM SCREEN -->
+            <section
+                id="examScreen"
+                class="screen hidden"
+            >
+
+                <div class="exam-header">
+
+                    <div>
+
+                        <div class="exam-label">
+                            VELORA ONLINE EXAM
+                        </div>
+
+                        <h1 id="examSubject">
+                            Veb dizayn va UI/UX
+                        </h1>
+
+                        <p id="studentDisplay">
+                            O‘quvchi
+                        </p>
+
+                    </div>
+
+
+                    <div class="timer-box">
+
+                        <span>⏱</span>
+
+                        <div>
+                            <small>Qolgan vaqt</small>
+                            <strong id="timer">
+                                20:00
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-area">
+
+                    <div class="progress-text">
+
+                        <span>
+                            Savol
+                            <b id="currentNumber">1</b>
+                            /
+                            <b id="totalQuestions">20</b>
+                        </span>
+
+                        <span>
+                            <b id="answeredCount">0</b>
+                            ta javob
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+                        <div id="progress"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="exam-layout">
+
+                    <!-- QUESTION -->
+                    <div class="question-card">
+
+                        <div class="question-number">
+                            SAVOL <span id="questionIndex">01</span>
+                        </div>
+
+                        <h2 id="questionText">
+                            Savol yuklanmoqda...
+                        </h2>
+
+
+                        <div
+                            id="answers"
+                            class="answers"
+                        >
+                        </div>
+
+
+                        <div class="question-actions">
+
+                            <button
+                                id="prevBtn"
+                                class="secondary-btn"
+                            >
+                                ← Oldingi
+                            </button>
+
+
+                            <button
+                                id="nextBtn"
+                                class="next-btn"
+                            >
+                                Keyingi →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUESTION NAVIGATOR -->
+                    <aside class="question-nav">
+
+                        <h3>
+                            Savollar
+                        </h3>
+
+                        <p>
+                            Javob berilgan savollar
+                            belgilanadi.
+                        </p>
+
+                        <div
+                            id="questionNumbers"
+                            class="question-numbers"
+                        >
+                        </div>
+
+
+                        <div class="legend">
+
+                            <div>
+                                <span class="legend-current"></span>
+                                Hozirgi
+                            </div>
+
+                            <div>
+                                <span class="legend-done"></span>
+                                Javob berilgan
+                            </div>
+
+                            <div>
+                                <span class="legend-empty"></span>
+                                Javobsiz
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            id="finishBtn"
+                            class="finish-btn"
+                        >
+                            Imtihonni yakunlash
+                        </button>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESULT SCREEN -->
+            <section
+                id="resultScreen"
+                class="screen hidden"
+            >
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        🏆
+                    </div>
+
+                    <div class="result-label">
+                        IMTIHON YAKUNLANDI
+                    </div>
+
+                    <h1>
+                        Tabriklaymiz!
+                    </h1>
+
+                    <p id="resultStudent">
+                        O‘quvchi
+                    </p>
+
+
+                    <div class="score-circle">
+
+                        <div>
+                            <strong id="score">
+                                0
+                            </strong>
+
+                            <span>/ 100</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-message" id="resultMessage">
+                        Natijangiz
+                    </div>
+
+
+                    <div class="result-stats">
+
+                        <div>
+                            <span>✓</span>
+                            <strong id="correctCount">
+                                0
+                            </strong>
+                            <small>To‘g‘ri</small>
+                        </div>
+
+                        <div>
+                            <span>✕</span>
+                            <strong id="wrongCount">
+                                0
+                            </strong>
+                            <small>Noto‘g‘ri</small>
+                        </div>
+
+                        <div>
+                            <span>—</span>
+                            <strong id="emptyCount">
+                                0
+                            </strong>
+                            <small>Javobsiz</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-actions">
+
+                        <button
+                            id="restartBtn"
+                            class="start-btn"
+                        >
+                            🔄 Qayta topshirish
+                        </button>
+
+                        <button
+                            id="homeBtn"
+                            class="secondary-btn"
+                        >
+                            Bosh sahifaga
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
